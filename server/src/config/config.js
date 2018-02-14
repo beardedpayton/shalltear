@@ -9,5 +9,8 @@ module.exports = {
       host: process.env.HOST || 'localhost',
       sotrage: process.env.STORAGE || 'fullstackapp.sqlite'
     }
+  },
+  auth: {
+    jwtSecret: 'secret'
   }
 }

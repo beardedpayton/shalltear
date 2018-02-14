@@ -11,16 +11,18 @@
             <v-text-field
               label="Email Address"
               v-model="email"
+              required
             >
             </v-text-field>
             <br>
             <v-text-field
               label="Password"
               v-model="password"
+              required
             >
             </v-text-field>
             <br>
-            <v-btn color="blue darken-1" class="white--text">Register</v-btn>
+            <v-btn @click="login" color="blue darken-1" class="white--text">Login</v-btn>
           </div>
         </div>
       </v-flex>
@@ -29,6 +31,7 @@
 </template>
 
 <script>
+import AuthenticationService from '@/services/AuthenticationService'
 export default {
   data () {
     return {
@@ -38,6 +41,16 @@ export default {
     }
   },
   methods: {
+    async login () {
+      try {
+        await AuthenticationService.login({
+          email: this.email,
+          password: this.password
+        })
+      } catch (error) {
+        this.error = error.response.data.error
+      }
+    }
   }
 }
 </script>
