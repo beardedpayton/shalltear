@@ -12,8 +12,11 @@ module.exports = {
   async register (req, res) {
     try {
       const user = await User.create(req.body)
-      const userJSON = user.toJSON()
-      res.send(userJSON)
+      const userJson = user.toJSON()
+      res.send({
+        user: userJson,
+        token: jwtSignUser(userJson)
+      })
     } catch (err) {
       res.status(400).send({
         error: `The email ${req.body.email} is already registered`
@@ -39,10 +42,10 @@ module.exports = {
           error: 'Password did not match'
         })
       }
-      const userToJson = user.toJSON()
+      const userJson = user.toJSON()
       res.send({
-        user: userToJson,
-        token: jwtSignUser(userToJson)
+        user: userJson,
+        token: jwtSignUser(userJson)
       })
     } catch (err) {
       res.status(500).send({
