@@ -4,7 +4,7 @@
       <v-flex xs6 offset-xs3>
         <div class="register-card">
           <v-toolbar color="blue darken-1">
-            <v-toolbar-title class="white--text">Register</v-toolbar-title>
+            <v-toolbar-title class="white--text">Login</v-toolbar-title>
           </v-toolbar>
           <div class="input-wrapper">
             <div class="error" v-html="error"></div>
@@ -20,7 +20,7 @@
             >
             </v-text-field>
             <br>
-            <v-btn @click="registerUser" color="blue darken-1" class="white--text">Register</v-btn>
+            <v-btn color="blue darken-1" class="white--text">Register</v-btn>
           </div>
         </div>
       </v-flex>
@@ -29,7 +29,6 @@
 </template>
 
 <script>
-import AuthenticationService from '@/services/AuthenticationService'
 export default {
   data () {
     return {
@@ -39,16 +38,6 @@ export default {
     }
   },
   methods: {
-    async registerUser () {
-      try {
-        await AuthenticationService.register({
-          email: this.email,
-          password: this.password
-        })
-      } catch (error) {
-        this.error = error.response.data.error
-      }
-    }
   }
 }
 </script>
