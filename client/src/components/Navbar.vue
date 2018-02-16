@@ -9,11 +9,13 @@
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
       <v-btn flat dark
-      to="register">
+      to="register"
+      v-if="!$store.state.isUserLoggedIn">
       Sign Up
       </v-btn>
       <v-btn flat dark
-      to="login">
+      to="login"
+      v-if="!$store.state.isUserLoggedIn">
       Login
       </v-btn>
     </v-toolbar-items>
