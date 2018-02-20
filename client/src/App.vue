@@ -32,4 +32,7 @@ h4 {
 section {
   padding: 75px 0;
 }
+.error {
+  color: red;
+}
 </style>

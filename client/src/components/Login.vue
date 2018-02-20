@@ -2,10 +2,7 @@
   <section>
     <v-layout row wrap>
       <v-flex xs6 offset-xs3>
-        <div class="register-card">
-          <v-toolbar color="blue darken-1">
-            <v-toolbar-title class="white--text">Login</v-toolbar-title>
-          </v-toolbar>
+        <Panel title="Login">
           <v-form>
             <div class="input-wrapper">
               <div class="error" v-html="error"></div>
@@ -27,13 +24,14 @@
               <v-btn @click="login" color="blue darken-1" class="white--text">Login</v-btn>
             </div>
           </v-form>
-        </div>
+        </Panel>
       </v-flex>
     </v-layout>
   </section>
 </template>
 
 <script>
+import Panel from '@/components/Panel'
 import AuthenticationService from '@/services/AuthenticationService'
 export default {
   data () {
@@ -42,6 +40,9 @@ export default {
       password: '',
       error: null
     }
+  },
+  components: {
+    Panel
   },
   methods: {
     async login () {
@@ -61,13 +62,4 @@ export default {
 </script>
 
 <style scoped>
-.error {
-  color: red;
-}
-.input-wrapper {
-  padding: 25px 25px;
-}
-.register-card {
-  background-color: #efefef;
-}
 </style>

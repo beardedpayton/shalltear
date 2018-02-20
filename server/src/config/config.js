@@ -7,7 +7,7 @@ module.exports = {
     options: {
       dialect: process.env.DIALECT || 'sqlite',
       host: process.env.HOST || 'localhost',
-      sotrage: process.env.STORAGE || 'fullstackapp.sqlite'
+      storage: process.env.STORAGE || './fullstackapp.sqlite'
     }
   },
   auth: {

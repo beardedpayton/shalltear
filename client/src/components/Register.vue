@@ -2,10 +2,7 @@
   <section>
     <v-layout row wrap>
       <v-flex xs6 offset-xs3>
-        <div class="register-card">
-          <v-toolbar color="blue darken-1">
-            <v-toolbar-title class="white--text">Register</v-toolbar-title>
-          </v-toolbar>
+        <Panel title="Register">
           <v-form autocomplete="off">
             <div class="input-wrapper">
               <div class="error" v-html="error"></div>
@@ -27,7 +24,7 @@
               <v-btn @click="registerUser" color="blue darken-1" class="white--text">Register</v-btn>
             </div>
           </v-form>
-        </div>
+        </Panel>
       </v-flex>
     </v-layout>
   </section>
@@ -35,6 +32,7 @@
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
+import Panel from '@/components/Panel'
 export default {
   data () {
     return {
@@ -42,6 +40,9 @@ export default {
       password: '',
       error: null
     }
+  },
+  components: {
+    Panel
   },
   methods: {
     async registerUser () {
@@ -61,13 +62,4 @@ export default {
 </script>
 
 <style scoped>
-.error {
-  color: red;
-}
-.input-wrapper {
-  padding: 25px 25px;
-}
-.register-card {
-  background-color: #efefef;
-}
 </style>

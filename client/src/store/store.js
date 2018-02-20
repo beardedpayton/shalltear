@@ -23,9 +23,8 @@ export default new Vuex.Store({
         state.isUserLoggedIn = false
       }
     },
-    setUser ({commit}, user) {
-      // call mutation setUser and pass it user from state object
-      commit('setUser', user)
+    setUser (state, user) {
+      state.user = user
     }
   },
   actions: {
