@@ -77,10 +77,10 @@
         <div class="ml-4 mt-4">
           <div class="danger">{{error}}</div>
           <v-btn
-          @click="createSong"
+          @click="save"
           color="blue darken-1"
           class="white--text">
-          Create Song
+          Edit Song
           </v-btn>
         </div>
       </v-flex>
@@ -113,7 +113,8 @@ export default {
     Panel
   },
   methods: {
-    async createSong () {
+    async save () {
+      console.log('testing')
       this.error = null
       const dataInAllFields = Object
         .keys(this.song)
@@ -123,12 +124,19 @@ export default {
         this.error = 'All fields are required before creating a song'
         return
       }
-
       try {
-        await SongsService.post(this.song)
+        await SongsService.put(this.song)
       } catch (error) {
         console.log(error)
       }
+    }
+  },
+  async mounted () {
+    try {
+      const songId = this.$store.state.route.params.songId
+      this.song = (await SongsService.show(songId)).data
+    } catch (error) {
+      console.log(error)
     }
   }
 }

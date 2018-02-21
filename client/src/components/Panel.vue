@@ -2,6 +2,7 @@
   <div class="register-card">
     <v-toolbar color="blue darken-1">
       <v-toolbar-title class="white--text">{{title}}</v-toolbar-title>
+      <slot name="add" />
     </v-toolbar>
     <slot>
       No content defined

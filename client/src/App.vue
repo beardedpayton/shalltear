@@ -29,10 +29,27 @@ h3,
 h4 {
   font-family: 'Open Sans Condensed', sans-serif;
 }
+h1 {
+  font-size: 42px;
+}
 section {
   padding: 75px 0;
 }
-.error {
+.danger {
   color: red;
+}
+.album-image {
+  width: 80%;
+}
+.song {
+  padding: 15px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+.song span {
+  font-style: italic;
+}
+.register-card {
+  width: 95%;
 }
 </style>
